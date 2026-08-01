@@ -218,7 +218,7 @@ export async function onRequestPost(context) {
     }
 
     // 6. Forward to Google Apps Script
-    const appsScriptUrl = env.GOOGLE_APPS_SCRIPT_URL;
+    const appsScriptUrl = env.GOOGLE_APPS_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbzTDbiC0qElp8udE4wZ4jr-M5oYOgglc7k3PJJVF9_ZUc6ykzfhqRN1KFUyMYWNS1gf/exec";
     if (!appsScriptUrl || appsScriptUrl === 'REPLACE_ME') {
       console.error('GOOGLE_APPS_SCRIPT_URL is not configured.');
       // Return success in test environment if endpoint not configured yet
