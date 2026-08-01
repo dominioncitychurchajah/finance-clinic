@@ -125,10 +125,11 @@ they were written, and are noted here for the client to resolve.
 
   Also update the same footer link on `index.html` (line 411) and `fees.html` (line TBC in footer).
 
-### Email Address (Lines 80–84)
+### Email Address (Lines 78–83) — ✅ DONE
 
-- **Line 80** — `<a class="way rv" href="#">` (Email card link) — Replace `href="#"` with `href="mailto:hello@financeclinic.ng"` once confirmed, or with the real address if different.
-- **Line 84** — `hello@financeclinic.ng` — Confirm this is the correct email address. If it differs, update both the visible text and the `href` on line 80.
+- The Email card now links to `mailto:info@financeclinik.com` and displays the same address.
+- ⚠️ Note the spelling: the address is `financeclini**k**.com` (K, `.com`), which differs from the site's canonical domain `financeclinic.ng` (C, `.ng`). This was supplied deliberately — confirm once more before launch, as a wrong address here silently loses enquiries.
+- Still outstanding: set the `NOTIFICATION_EMAIL` property (see README) to whichever inbox should receive registration form submissions. It defaults to the placeholder `hello@financeclinic.ng` in the docs and is **not** set by this change.
 
 ### Map Placeholder (Lines 201–202)
 

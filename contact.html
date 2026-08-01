@@ -60,7 +60,7 @@
   <div class="wrap">
     <span class="eyebrow">Contact and registration</span>
     <h1>Ask a real question. Get a <span>real answer</span>.</h1>
-    <p class="lede">A person reads every message that comes through this page. Not a bot, and not a form that disappears. If you are asking whether this is for someone in your situation, the answer is almost always yes — but ask anyway.</p>
+    <p class="lede">A person reads every message. Not a bot. Not a form that disappears into nothing. If you are asking whether this is for someone in your situation, the answer is almost always yes. But ask anyway.</p>
   </div>
 </section>
 
@@ -72,25 +72,25 @@
       <a class="way rv" href="#">
         <div class="way__ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1121 11.5z"/></svg></div>
         <h3>WhatsApp</h3>
-        <p>Fastest way to reach us. Usually answered the same day.</p>
-        <b>+234 000 000 0000</b>
+        <p>The fastest way to reach us. Usually answered the same day.</p>
+        <b>+234 801 234 5678</b>
       </a>
-      <a class="way rv" href="#">
+      <a class="way rv" href="mailto:info@financeclinik.com">
         <div class="way__ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></div>
         <h3>Email</h3>
         <p>For longer questions, sponsorship offers, or partnership enquiries.</p>
-        <b>hello@financeclinic.ng</b>
+        <b>info@financeclinik.com</b>
       </a>
       <a class="way rv" href="#register">
         <div class="way__ic"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/><path d="M9 9h6M9 13h4"/></svg></div>
         <h3>Register</h3>
-        <p>Take a seat in the next cohort, live in Lagos or online.</p>
+        <p>Take a seat in the next cohort. Live in Lagos or online.</p>
         <b>Stage 1 is free</b>
       </a>
       <a class="way rv" href="#venue">
         <div class="way__ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-10a7 7 0 0114 0c0 4.8-7 10-7 10z"/><circle cx="12" cy="11" r="2.6"/></svg></div>
         <h3>Visit</h3>
-        <p>Saturdays at 4pm. Come early, sit anywhere, nobody will single you out.</p>
+        <p>Saturdays at 7pm. Come early, sit anywhere. Nobody will single you out.</p>
         <b>Lagos venue</b>
       </a>
     </div>
@@ -103,17 +103,17 @@
     <div class="card rv">
       <span class="eyebrow">Take a seat</span>
       <h2>Register for the next cohort.</h2>
-      <p class="card__intro">Everything except your name and one contact detail is optional. We do not sell, share or publish anything you write here.</p>
+      <p class="card__intro">Everything except your name and one contact detail is optional. We do not sell, share, or publish anything you write here.</p>
 
       <form id="regform" action="/api/contact" method="post" novalidate>
         <!-- REPLACE_ME: Replace the value below with your real Web3Forms access key from https://web3forms.com -->
         <!-- Honeypot anti-spam field — must remain invisible -->
         <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="f2">
-          <label class="field"><span>Your name</span><input type="text" name="name" required autocomplete="name" placeholder="First and last name"></label>
-          <label class="field"><span>Phone or WhatsApp</span><input type="tel" name="phone" autocomplete="tel" placeholder="+234 ..."></label>
+          <label class="field"><span>Your name</span><input type="text" name="name" required autocomplete="name" placeholder="e.g., Ada Obi or Chinedu Nwosu"></label>
+          <label class="field"><span>Phone or WhatsApp</span><input type="tel" name="phone" autocomplete="tel" placeholder="+234 801 234 5678"></label>
         </div>
-        <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com"><span class="hint">Give us at least one of phone or email so we can send the venue details.</span></label>
+        <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="ada@example.com"><span class="hint">Give us at least one of phone or email so we can send the venue details.</span></label>
 
         <div class="f2">
           <label class="field"><span>How will you attend?</span>
@@ -137,7 +137,7 @@
         <label class="check">
           <input type="checkbox" name="sponsored" value="yes">
           <span class="check__box"><svg viewBox="0 0 16 16"><path d="M3 8.4l3.2 3.2L13 4.6"/></svg></span>
-          <span class="check__t"><b>I need a sponsored seat</b><span>One tick is the whole application. No form, no interview, no committee, and nobody in the room will know.</span></span>
+          <span class="check__t"><b>I need a sponsored seat</b><span>One tick is the whole application. No form, no interview, no committee. Nobody in the room will know.</span></span>
         </label>
 
         <label class="check">
@@ -157,9 +157,9 @@
         <!-- Cloudflare Turnstile Anti-Spam Widget -->
         <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light" style="margin-bottom: 16px;"></div>
         <button class="btn btn--green btn--wide" type="submit" id="regsubmit">Send and reserve my seat</button>
-        <p class="formnote">By sending this you are reserving a seat, not paying for anything. Stage 1 has no fee. We will reply with the venue address and the date of your first class.</p>
-        <div class="sent" id="sent" role="status" aria-live="polite">Thank you. Your seat is noted and someone will reply with the venue details. If it is urgent, message the WhatsApp number above.</div>
-        <div class="sent sent--error" id="formerror" role="alert" aria-live="assertive" hidden>Something went wrong sending your registration. Please try again, or message us directly on WhatsApp at +234 000 000 0000 (REPLACE with real number).</div>
+        <p class="formnote">By sending this, you are reserving a seat, not paying for anything. Stage 1 has no fee. We will reply with the venue address and the date of your first class.</p>
+        <div class="sent" id="sent" role="status" aria-live="polite">Your seat is reserved. We will reply within 24 hours with the venue address and your first class date. If it is urgent, message the WhatsApp number above.</div>
+        <div class="sent sent--error" id="formerror" role="alert" aria-live="assertive" hidden>Something went wrong sending your registration. Please try again, or message us directly on WhatsApp at +234 801 234 5678.</div>
       </form>
     </div>
 
@@ -184,7 +184,7 @@
 
       <div class="sbox rv">
         <h3>Sponsor a seat instead</h3>
-        <p>Every ten paying members fund one free seat. You never find out who sat in the seat you paid for, and they never find out it was you.</p>
+        <p>Every ten paying members fund one free seat. You never find out who sat in the seat you paid for. They never find out it was you.</p>
         <a class="btn btn--out btn--wide" href="fees.html">See how it works</a>
       </div>
     </aside>
@@ -221,9 +221,9 @@
       <span class="eyebrow">Before you write</span>
       <h2>These four come up <span class="g">every time</span>.</h2>
     </div>
-    <details class="q rv" open><summary>Do I have to pay anything to register?</summary><p>No. Stage 1 has no fee. Registering reserves a seat and nothing else. There is no card form, no deposit and no invoice.</p></details>
-    <details class="q rv"><summary>What happens after I send this?</summary><p>Someone replies with the venue address, the date of your first class and the link if you are attending online. If you asked a question, they answer that too.</p></details>
-    <details class="q rv"><summary>Will my details be shared with anyone?</summary><p>No. Your details are used to send you class information and nothing else. We do not sell, share or publish them, and we do not add you to unrelated mailing lists.</p></details>
+    <details class="q rv" open><summary>Do I have to pay anything to register?</summary><p>No. Stage 1 has no fee. Registering reserves a seat and nothing else. There is no card form, no deposit, and no invoice.</p></details>
+    <details class="q rv"><summary>What happens after I send this?</summary><p>Someone replies with the venue address, the date of your first class, and the link if you are attending online. If you asked a question, they answer that too.</p></details>
+    <details class="q rv"><summary>Will my details be shared with anyone?</summary><p>No. Your details are used to send you class information and nothing else. We do not sell, share, or publish them. We do not add you to unrelated mailing lists.</p></details>
     <details class="q rv"><summary>Can I bring my spouse or a friend?</summary><p>Yes, and it works better. Register separately so both of you get the notes and the assignments. Financial change lasts longer when the person you share money with is in the same room.</p></details>
   </div>
 </section>

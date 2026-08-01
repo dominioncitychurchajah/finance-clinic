@@ -56,7 +56,7 @@
       {
         min: 0,
         t: 'Tick what applies above.',
-        d: 'Most people carry four or five of these and assume it is normal. It is common. That is a different thing.'
+        d: 'Most people carry four or five of these and assume it is normal. It is common, but common does not mean normal.'
       },
       {
         min: 1,
