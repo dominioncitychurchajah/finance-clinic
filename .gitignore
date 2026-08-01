@@ -21,3 +21,8 @@ npm-debug.log*
 .env
 .env.local
 .env.production
+
+# Old draft files — not part of the live site
+finance-clinic-landing.html
+finance-clinic-hostix-style*.html
+assets/img/finance\ clinic\ logo.webp
