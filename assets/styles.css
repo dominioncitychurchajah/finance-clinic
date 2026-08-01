@@ -913,3 +913,13 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   justify-content: flex-start !important;
   margin-left: 0 !important;
 }
+
+
+/* Brand Logo Image */
+.brand__img {
+  height: 32px;
+  width: auto;
+  max-height: 32px;
+  flex: none;
+  object-fit: contain;
+}
