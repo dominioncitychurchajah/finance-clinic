@@ -196,4 +196,68 @@
       }
     });
   }
+
+  // --- 6. CONTACT FORM — REAL WEB3FORMS SUBMISSION (contact.html) ---
+  var regForm = document.getElementById('regform');
+  var sentEl = document.getElementById('sent');
+  var formError = document.getElementById('formerror');
+  var submitBtn = document.getElementById('regsubmit');
+
+  if (regForm && sentEl && submitBtn) {
+    regForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Block honeypot submissions
+      var botField = regForm.querySelector('[name="botcheck"]');
+      if (botField && botField.value) return;
+
+      var nameField = regForm.querySelector('[name="name"]');
+      if (!nameField || !nameField.value.trim()) {
+        nameField.focus();
+        return;
+      }
+
+      // Disable and show loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      var formData = new FormData(regForm);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            return response.json().then(function (data) {
+              if (data.success) {
+                sentEl.classList.add('show');
+                sentEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                regForm.reset();
+                if (formError) {
+                  formError.setAttribute('hidden', '');
+                  formError.classList.remove('show');
+                }
+              } else {
+                throw new Error('Submission failed');
+              }
+            });
+          } else {
+            throw new Error('Network response was not ok');
+          }
+        })
+        .catch(function () {
+          if (formError) {
+            formError.removeAttribute('hidden');
+            formError.classList.add('show');
+            formError.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          }
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send and reserve my seat';
+        });
+    });
+  }
 })();
