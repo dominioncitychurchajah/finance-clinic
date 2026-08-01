@@ -14,20 +14,29 @@
 
 <nav class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="brand" href="#top">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="11" fill="none" stroke="#0B1B2B" stroke-width="1.6"/>
-        <path d="M4 12h3.4l1.6-4 2.4 8 2-4.6 1.4 2.6H20" fill="none" stroke="#16B364" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="#0B1B2B" stroke-width="1.6"/><path d="M4 12h3.4l1.6-4 2.4 8 2-4.6 1.4 2.6H20" fill="none" stroke="#16B364" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Finance Clinic
     </a>
     <div class="nav__links">
-      <a href="#check">Symptom check</a>
-      <a href="#rx">Curriculum</a>
-      <a href="#fees">Fees</a>
-      <a href="#faq">Questions</a>
+      <a href="index.html" class="on">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="fees.html">Fees</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <a class="btn btn--green btn--sm" href="#book">Book consultation</a>
+    <a class="btn btn--green btn--sm nav__cta" href="contact.html">Book consultation</a>
+    <button class="nav__burger" id="burger" aria-expanded="false" aria-controls="mobilenav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobilenav" id="mobilenav" hidden>
+    <a href="index.html" class="on">Home</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="fees.html">Fees</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn--green" href="contact.html">Book consultation</a>
   </div>
 </nav>
 

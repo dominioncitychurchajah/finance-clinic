@@ -125,4 +125,75 @@
     setInterval(tick, 1000);
   }
 
+
+  // --- 5. MOBILE MENU HANDLER ---
+  var burger = document.getElementById("burger");
+  var mobileNav = document.getElementById("mobilenav");
+
+  if (burger && mobileNav) {
+    var focusableEls = function () {
+      return Array.prototype.slice.call(
+        mobileNav.querySelectorAll("a[href], button, [tabindex]:not([tabindex=\"-1\"])")
+      );
+    };
+
+    var openMenu = function () {
+      burger.setAttribute("aria-expanded", "true");
+      mobileNav.removeAttribute("hidden");
+      document.body.style.overflow = "hidden";
+      var els = focusableEls();
+      if (els.length > 0) els[0].focus();
+    };
+
+    var closeMenu = function () {
+      burger.setAttribute("aria-expanded", "false");
+      mobileNav.setAttribute("hidden", "");
+      document.body.style.overflow = "";
+    };
+
+    var toggleMenu = function () {
+      var isExpanded = burger.getAttribute("aria-expanded") === "true";
+      if (isExpanded) {
+        closeMenu();
+        burger.focus();
+      } else {
+        openMenu();
+      }
+    };
+
+    burger.addEventListener("click", toggleMenu);
+
+    mobileNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        closeMenu();
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && burger.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        burger.focus();
+      }
+    });
+
+    mobileNav.addEventListener("keydown", function (e) {
+      if (e.key !== "Tab") return;
+      var els = focusableEls();
+      if (els.length === 0) return;
+      var firstEl = els[0];
+      var lastEl = els[els.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl || document.activeElement === burger) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          burger.focus();
+        }
+      }
+    });
+  }
 })();
