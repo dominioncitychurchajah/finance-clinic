@@ -616,11 +616,11 @@ h3{font-size:clamp(17px,1.4vw,19px);letter-spacing:-.015em}
 .btn--wide{width:100%}
 
 /* hero */
-.hero{background:var(--bg);padding:clamp(46px,5.5vw,74px) 0 clamp(30px,4vw,44px);text-align:center}
+.hero{background:var(--bg);padding:clamp(46px,5.5vw,74px) 0 clamp(30px,4vw,44px);text-align:left}
 
-.hero h1{margin-bottom:18px;max-width:16ch;margin-left:auto;margin-right:auto}
+.hero h1{margin-bottom:18px;max-width:16ch;margin-left:0;margin-right:auto}
 
-.hero p{max-width:56ch;margin:0 auto}
+.hero p{max-width:56ch;margin:0 0 0 0}
 
 /* contact methods */
 .ways{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -885,4 +885,31 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 }
 .sent--error.show {
   display: block;
+}
+
+
+/* ==========================================================================
+   HERO SECTIONS — STRICT LEFT ALIGNMENT
+   ========================================================================== */
+
+.hero,
+.hero__grid,
+.hero > .wrap {
+  text-align: left !important;
+}
+
+.hero h1,
+.hero h2,
+.hero p,
+.hero .eyebrow,
+.hero .lede,
+.hero__note {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.hero__btns {
+  justify-content: flex-start !important;
+  margin-left: 0 !important;
 }
