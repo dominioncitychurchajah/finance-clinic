@@ -848,3 +848,23 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     display: none;
   }
 }
+
+
+/* Skip-to-content link for keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 0 0 var(--r-sm) 0;
+  text-decoration: none;
+  z-index: 200;
+  transition: top .2s;
+}
+.skip-link:focus {
+  top: 0;
+}
