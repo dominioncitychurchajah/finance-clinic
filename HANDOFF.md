@@ -31,7 +31,7 @@ they were written, and are noted here for the client to resolve.
 - **Line 330** — HTML comment: `REPLACE: wire these two numbers to a real source before publishing`
 - **Line 331** — `<div class="counter__n">37</div>` — The `37` is a placeholder.
   Replace with the real count of sponsored seats sold to date.
-- **Line 334** — `62% of the September cohort funded` — The `62%` is a placeholder.
+- **Line 334** — `62% of the August cohort funded` — The `62%` is a placeholder.
   Replace with the real funded percentage.
   Update both figures each cohort cycle.
 
@@ -39,11 +39,11 @@ they were written, and are noted here for the client to resolve.
 
 - **Line 84** — `Sat 5 Sept` — Cohort date in the hero stats card.
   Update each cohort cycle to the actual next start date.
-- **Line 368** — `href="#"` on "Register for the September cohort" button.
+- **Line 368** — `href="#"` on "Register for the August cohort" button.
   Point this to `contact.html#register` (or your booking system URL).
 - **Line 369** — `href="#"` on "Ask a question on WhatsApp" button.
   Set to `https://wa.me/234XXXXXXXXXX` with your real number.
-- **Line 372** — `Saturday 5 September, 4:00pm` — Update each cohort cycle.
+- **Line 372** — `Saturday 8 August 2026, 4:00pm` — Update each cohort cycle.
 
 ---
 
@@ -51,12 +51,12 @@ they were written, and are noted here for the client to resolve.
 
 ### Cohort Date & Countdown Target (assets/app.js Line 104)
 
-- **assets/app.js line 104** — `var targetDate = '2026-09-05T16:00:00+01:00';`
+- **assets/app.js line 104** — `var targetDate = '2026-08-08T19:00:00+01:00';`
   This is the date the countdown timer on the curriculum page counts down to.
   Update to the real cohort start date and time in ISO 8601 format each cycle.
   Example: `'2027-01-10T16:00:00+01:00'`
 
-- **Line 417** — `href="#"` on "Register for the September cohort" button.
+- **Line 417** — `href="#"` on "Register for the August cohort" button.
   Set to `contact.html#register`.
 
 ---
@@ -77,8 +77,8 @@ they were written, and are noted here for the client to resolve.
 ### Cohort Date & Buttons (Lines 79, 214, 270–271)
 
 - **Line 79** — `Sat 5 Sept` — Update each cohort cycle.
-- **Line 214** — `62% of the September cohort funded` — Update each cohort cycle.
-- **Line 270** — `href="#"` on "Register for the September cohort" — Set to `contact.html#register`.
+- **Line 214** — `62% of the August cohort funded` — Update each cohort cycle.
+- **Line 270** — `href="#"` on "Register for the August cohort" — Set to `contact.html#register`.
 - **Line 271** — `href="#"` on "Ask a question on WhatsApp" — Set to `https://wa.me/234XXXXXXXXXX`.
 
 ---
@@ -160,11 +160,11 @@ to `contact.html#register` or a real booking URL:
 
 | File | Line | Button text |
 |---|---|---|
-| `index.html` | 368 | Register for the September cohort |
+| `index.html` | 368 | Register for the August cohort |
 | `index.html` | 369 | Ask a question on WhatsApp → `https://wa.me/234XXXXXXXXXX` |
-| `fees.html` | 270 | Register for the September cohort |
+| `fees.html` | 270 | Register for the August cohort |
 | `fees.html` | 271 | Ask a question on WhatsApp → `https://wa.me/234XXXXXXXXXX` |
-| `curriculum.html` | 417 | Register for the September cohort |
+| `curriculum.html` | 417 | Register for the August cohort |
 
 ---
 

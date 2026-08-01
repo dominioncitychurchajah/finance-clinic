@@ -101,7 +101,7 @@
   var cdS = document.getElementById('cdS');
 
   if (cdD && cdH && cdM && cdS) {
-    var targetDate = '2026-09-05T16:00:00+01:00';
+    var targetDate = '2026-08-08T19:00:00+01:00';
     var start = new Date(targetDate).getTime();
 
     var pad = function (n) {
