@@ -913,7 +913,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
 /* Brand & Header Logo */
 .brand__img {
-  height: clamp(48px, 6vw, 64px);
+  height: clamp(56px, 7vw, 80px);
   width: auto;
   display: block;
   object-fit: contain;
@@ -987,7 +987,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     height: 64px !important;
   }
   .brand__img {
-    height: 52px !important;
+    height: 60px !important;
   }
 }
 
