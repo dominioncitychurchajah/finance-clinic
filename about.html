@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Finance Clinic</title>
+<meta name="description" content="Why Finance Clinic is a school and not a seminar. Our vision, our culture, how we keep the door open to every income, and where the money goes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1A2B;--ink:#0B1B2B;--body:#5C6B7A;--muted:#8494A3;
+  --green:#16B364;--green-dk:#0F8F4E;--green-tint:#EFFBF3;--green-line:#B9E9CD;
+  --bg:#F5F8FA;--white:#FFFFFF;--line:#E5EBF0;
+  --r:12px;--r-sm:8px;--pad:clamp(64px,7.5vw,110px);--wrap:1180px;
+  --shadow:0 18px 40px -18px rgba(11,27,43,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--white);color:var(--ink);font-family:"Plus Jakarta Sans",-apple-system,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--green);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sec{padding:var(--pad) 0}
+.sec--bg{background:var(--bg)}
+.sec--navy{background:var(--navy);color:#E8EFF5}
+h1,h2,h3,h4{line-height:1.18;letter-spacing:-.025em;font-weight:800}
+h1{font-size:clamp(34px,4.9vw,54px);line-height:1.1}
+h2{font-size:clamp(28px,3.6vw,42px)}
+h3{font-size:clamp(18px,1.5vw,20px);letter-spacing:-.015em}
+.g{color:var(--green)}
+p{color:var(--body)}
+.lede{font-size:16.5px;line-height:1.7}
+.eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.head{text-align:center;max-width:680px;margin:0 auto clamp(38px,4.5vw,56px)}
+.head h2{margin-bottom:16px}
+.head p{font-size:16px}
+.sec--navy .head h2{color:#fff}
+.sec--navy .head p{color:rgba(232,239,245,.68)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-size:15px;font-weight:600;padding:14px 26px;border-radius:var(--r-sm);border:1.5px solid transparent;text-decoration:none;cursor:pointer;transition:background .18s,transform .18s,border-color .18s,color .18s}
+.btn--green{background:var(--green);color:#fff}
+.btn--green:hover{background:var(--green-dk);transform:translateY(-2px)}
+.btn--out{background:var(--white);color:var(--ink);border-color:var(--line)}
+.btn--out:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.btn--onNavy{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.btn--onNavy:hover{border-color:#fff;transform:translateY(-2px)}
+.btn--sm{padding:11px 20px;font-size:14px}
+
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .25s}
+.nav.stuck{border-bottom-color:var(--line)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:22px;height:74px}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.02em}
+.brand svg{width:26px;height:26px;flex:none}
+.nav__links{display:flex;gap:32px}
+.nav__links a{font-size:14.5px;font-weight:500;color:var(--body);text-decoration:none;transition:color .16s}
+.nav__links a:hover,.nav__links a.on{color:var(--green)}
+@media(max-width:940px){.nav__links{display:none}}
+@media(max-width:420px){.nav .btn{display:none}}
+
+/* hero */
+.hero{background:var(--bg);padding:clamp(46px,5.5vw,78px) 0 clamp(56px,6.5vw,92px)}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,5vw,64px);align-items:center}
+.hero h1{margin-bottom:18px}
+.hero h1 span{color:var(--green)}
+.hero p{max-width:48ch}
+.hero__btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+@media(max-width:900px){.hero__grid{grid-template-columns:1fr}}
+.vision{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(28px,3.4vw,38px)}
+.vision span{display:block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.vision p{font-size:clamp(18px,2vw,22px);line-height:1.45;color:var(--ink);font-weight:600;letter-spacing:-.015em}
+.vision cite{display:block;font-style:normal;font-size:14px;color:var(--muted);margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-weight:600}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4.5vw,64px);align-items:start}
+@media(max-width:900px){.story{grid-template-columns:1fr}}
+.story p + p{margin-top:16px}
+.pull{background:var(--green-tint);border:1px solid var(--green-line);border-radius:var(--r);padding:clamp(26px,3.2vw,36px)}
+.pull p{font-size:clamp(17px,1.9vw,20px);line-height:1.5;color:var(--ink);font-weight:600;letter-spacing:-.015em}
+.pull cite{display:block;font-style:normal;font-size:13.5px;color:var(--green-dk);margin-top:16px;font-weight:700}
+
+/* culture cards */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.cards3{grid-template-columns:1fr}}
+.vcard{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;transition:box-shadow .2s,transform .2s,border-color .2s}
+.vcard:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:var(--green-line)}
+.vcard__n{width:38px;height:38px;border-radius:10px;background:var(--green-tint);border:1px solid var(--green-line);display:grid;place-items:center;font-weight:800;color:var(--green-dk);font-size:15px;margin-bottom:18px}
+.vcard h3{margin-bottom:10px;font-size:19px}
+.vcard p{font-size:14.5px;line-height:1.6}
+
+/* access */
+.access{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,32px)}
+@media(max-width:900px){.access{grid-template-columns:1fr}}
+.acc h3{display:flex;gap:11px;align-items:flex-start;margin-bottom:14px;font-size:18px;color:#fff}
+.acc h3 svg{width:20px;height:20px;flex:none;margin-top:2px;fill:none;stroke:var(--green);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.acc ul{list-style:none;display:grid;gap:11px;padding-left:31px}
+.acc li{font-size:14.5px;line-height:1.55;color:rgba(232,239,245,.82);position:relative;padding-left:14px}
+.acc li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:99px;background:var(--green)}
+
+/* people */
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:940px){.people{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.people{grid-template-columns:1fr}}
+.person{background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.person__ph{height:180px;background:linear-gradient(135deg,#DCE6EE,#EDF3F7);position:relative}
+.person__ph::after{content:attr(data-label);position:absolute;left:14px;bottom:12px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8FA3B4}
+.person__bd{padding:20px 22px 24px}
+.person__bd b{display:block;font-size:16.5px;font-weight:800;letter-spacing:-.015em}
+.person__bd span{display:block;font-size:13px;font-weight:700;color:var(--green);margin-top:3px;letter-spacing:.02em}
+.person__bd p{font-size:14px;line-height:1.55;margin-top:11px}
+
+/* transparency */
+.money{background:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.money__row{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:20px 24px;border-bottom:1px solid var(--line);align-items:start}
+.money__row:last-child{border-bottom:0}
+.money__ic{width:38px;height:38px;border-radius:10px;background:var(--green-tint);border:1px solid var(--green-line);display:grid;place-items:center}
+.money__ic svg{width:19px;height:19px;fill:none;stroke:var(--green-dk);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.money__row b{display:block;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.money__row p{font-size:14.5px;line-height:1.55;margin-top:3px}
+.note{margin-top:20px;font-size:14.5px;color:var(--muted);font-weight:600}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
+.stat{text-align:center;padding:8px}
+.stat b{display:block;font-size:clamp(38px,4.6vw,52px);font-weight:800;letter-spacing:-.045em;color:var(--green);line-height:1}
+.stat span{display:block;font-size:14.5px;color:rgba(232,239,245,.75);margin-top:10px;font-weight:600}
+
+/* cta + footer */
+.final{padding:0 0 var(--pad)}
+.cta{position:relative;overflow:hidden;border-radius:16px;text-align:center;padding:clamp(48px,6.5vw,86px) 24px;background:var(--navy)}
+.cta::before{content:"";position:absolute;inset:0;opacity:.55;background:
+  radial-gradient(620px 320px at 50% 120%,rgba(22,179,100,.3),transparent 70%),
+  repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px)}
+.cta > *{position:relative}
+.cta h2{color:#fff;max-width:16ch;margin:0 auto 16px}
+.cta p{color:rgba(232,239,245,.72);max-width:54ch;margin:0 auto;font-size:16.5px}
+.cta__btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.foot{background:var(--navy);color:rgba(232,239,245,.66);padding:clamp(50px,6vw,72px) 0 0}
+.foot__grid{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:clamp(26px,4vw,52px)}
+@media(max-width:820px){.foot__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.foot__grid{grid-template-columns:1fr}}
+.foot .brand{color:#fff}
+.foot h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:16px;letter-spacing:0}
+.foot ul{list-style:none;display:grid;gap:11px}
+.foot a{font-size:14.5px;text-decoration:none;transition:color .16s}
+.foot a:hover{color:var(--green)}
+.verse{font-size:17px;line-height:1.6;color:rgba(232,239,245,.9);max-width:44ch;margin-top:18px;font-weight:500}
+.foot__addr{font-size:14.5px;margin-top:16px}
+.foot__bar{margin-top:clamp(38px,5vw,56px);border-top:1px solid rgba(255,255,255,.12);padding:22px 0 26px;text-align:center;font-size:13.5px}
+
+.pull--2{margin-top:20px}
+.sec--tight{padding-top:0}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="#0B1B2B" stroke-width="1.6"/><path d="M4 12h3.4l1.6-4 2.4 8 2-4.6 1.4 2.6H20" fill="none" stroke="#16B364" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Finance Clinic
+    </a>
+    <div class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="fees.html">Fees</a>
+      <a href="about.html" class="on">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="btn btn--green btn--sm" href="contact.html">Book consultation</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="eyebrow">About</span>
+      <h1>A clinic, because most people were never <span>diagnosed</span>.</h1>
+      <p class="lede">People are handed financial advice the way strangers hand out medicine — confidently, publicly, and without ever asking what is actually wrong. Finance Clinic exists because a room full of different problems cannot be fixed by one sermon and a good intention.</p>
+      <div class="hero__btns">
+        <a class="btn btn--green" href="contact.html">Book a consultation</a>
+        <a class="btn btn--out" href="curriculum.html">See the curriculum</a>
+      </div>
+    </div>
+    <aside class="vision rv">
+      <span>Our vision</span>
+      <p>A faith-rooted, wisdom-driven financial discipleship movement for every man, woman and child — from the marketplace to the mission field.</p>
+      <cite>Finance Clinic · Lagos, Nigeria</cite>
+    </aside>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="sec">
+  <div class="wrap story">
+    <div class="rv">
+      <span class="eyebrow">Why this exists</span>
+      <h2>Two halves of the same answer, taught in two different buildings.</h2>
+      <p>In one building people learn what scripture says about money — giving, honesty, contentment, provision. In another, people learn what a balance sheet is, how inflation works, and where to open an investment account. Most people only ever get access to one, and the half they receive cannot carry the weight of the whole problem.</p>
+      <p>Faith without arithmetic stays a wish. A believer who gives faithfully and has never written down what they owe is not more spiritual — they are undiagnosed. Arithmetic without conviction never survives a hard month. A perfect budget collapses the first time fear or shame gets a vote.</p>
+      <p>So we teach both, in the same room, on the same night, to the same people. Not as a compromise between them. As the actual answer.</p>
+    </div>
+    <div class="rv">
+      <div class="pull">
+        <p>“Finance Clinic is not a seminar. It is a school. Every great school has a clear entrance, a clear curriculum, and a clear graduation — followed by a mandate to go and teach others.”</p>
+        <cite>The founding principle</cite>
+      </div>
+      <div class="pull pull--2">
+        <p>“Go and make disciples of all nations… teaching them to obey everything I have commanded you.” That commission includes wealth.</p>
+        <cite>Matthew 28:19–20</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE -->
+<section class="sec sec--bg">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Our culture</span>
+      <h2>Three rules that hold the <span class="g">room</span> together.</h2>
+      <p>Everything else about how a Finance Clinic session runs comes out of these.</p>
+    </div>
+    <div class="cards3">
+      <div class="vcard rv">
+        <div class="vcard__n">01</div>
+        <h3>We do not compare. We compete with our yesterday.</h3>
+        <p>Nobody is shamed for where they are starting from. The market trader clearing one debt and the executive restructuring a portfolio are doing the same work, and the room treats them the same way.</p>
+      </div>
+      <div class="vcard rv">
+        <div class="vcard__n">02</div>
+        <h3>Testimony is curriculum.</h3>
+        <p>Real stories from real members carry as much teaching weight as any lesson we prepare. What worked for the person sitting beside you is evidence, and evidence is what changes behaviour.</p>
+      </div>
+      <div class="vcard rv">
+        <div class="vcard__n">03</div>
+        <h3>We finish what we start.</h3>
+        <p>The assignment system is the accountability engine. Without it, a class is information. With it, it becomes transformation. Attendance is not what we measure. Finished work is.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="sec sec--navy">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Access</span>
+      <h2>Keeping the door genuinely open.</h2>
+      <p>A school about money that quietly excludes people without money is not worth running. These are the specific things we do about it.</p>
+    </div>
+    <div class="access">
+      <div class="acc rv">
+        <h3><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Financial</h3>
+        <ul>
+          <li>Stage 1 is free to everyone, always</li>
+          <li>Stages 2 and 3 are progressively priced with payment plans</li>
+          <li>Every ten paying members sponsor one scholarship seat</li>
+          <li>Requesting a sponsored seat takes one sentence — no form, no interview, no committee</li>
+        </ul>
+      </div>
+      <div class="acc rv">
+        <h3><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-10a7 7 0 0114 0c0 4.8-7 10-7 10z"/><circle cx="12" cy="11" r="2.6"/></svg>Physical and social</h3>
+        <ul>
+          <li>Classes held in accessible, central community venues</li>
+          <li>Virtual attendance available from the first cohort</li>
+          <li>Printed notes for members without smartphones</li>
+          <li>Finance Clinic Juniors runs alongside, so childcare is not a barrier</li>
+        </ul>
+      </div>
+      <div class="acc rv">
+        <h3><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/></svg>Cultural and language</h3>
+        <ul>
+          <li>Plain everyday language, no jargon without explanation</li>
+          <li>Stories and case studies drawn from Nigerian and African life</li>
+          <li>Yoruba, Igbo and Hausa delivery planned where a community is large enough</li>
+          <li>No assumed level of prior education</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<!-- REPLACE: these four figures are placeholders. Publish only numbers you can evidence. -->
+<section class="sec sec--navy sec--tight">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat rv"><b>120</b><span>topics in the full curriculum</span></div>
+      <div class="stat rv"><b>4</b><span>classes every month</span></div>
+      <div class="stat rv"><b>1 in 10</b><span>seats sponsored by members</span></div>
+      <div class="stat rv"><b>₦0</b><span>to walk through the door</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<!-- REPLACE BEFORE PUBLISHING: photo slots and all four names, roles and bios are placeholders. -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Who teaches</span>
+      <h2>The people in <span class="g">front of the room</span>.</h2>
+      <p>Every facilitator teaches both courses. Nobody teaches only the scripture side or only the numbers side.</p>
+    </div>
+    <div class="people">
+      <div class="person rv">
+        <div class="person__ph" data-label="Photo"></div>
+        <div class="person__bd"><b>Name — replace</b><span>Lead facilitator</span><p>One or two lines on their background and why they teach here. Keep it plain.</p></div>
+      </div>
+      <div class="person rv">
+        <div class="person__ph" data-label="Photo"></div>
+        <div class="person__bd"><b>Name — replace</b><span>Facilitator, Kingdom Finance</span><p>One or two lines on their background and why they teach here. Keep it plain.</p></div>
+      </div>
+      <div class="person rv">
+        <div class="person__ph" data-label="Photo"></div>
+        <div class="person__bd"><b>Name — replace</b><span>Facilitator, Mind of Wealth</span><p>One or two lines on their background and why they teach here. Keep it plain.</p></div>
+      </div>
+      <div class="person rv">
+        <div class="person__ph" data-label="Photo"></div>
+        <div class="person__bd"><b>Name — replace</b><span>Juniors and community</span><p>One or two lines on their background and why they teach here. Keep it plain.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARENCY -->
+<section class="sec sec--bg">
+  <div class="wrap story">
+    <div class="rv">
+      <span class="eyebrow">Where the money goes</span>
+      <h2>A finance school should show its own books.</h2>
+      <p>We teach members to know what they owe, what they earn and where it goes. It would be strange to ask that of a room and not do it ourselves.</p>
+      <p>Stage 2 and Stage 3 fees, together with sponsored-seat contributions, cover the cost of running Stage 1 for free. Members who go on pay for the members who are just arriving.</p>
+      <p class="note">A full breakdown is published to members each quarter.</p>
+    </div>
+    <div class="rv">
+      <div class="money">
+        <div class="money__row">
+          <div class="money__ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-6h4v6"/></svg></div>
+          <div><b>Venue, chairs and sound</b><p>Central, accessible halls with room for a hundred and twenty people and their children.</p></div>
+        </div>
+        <div class="money__row">
+          <div class="money__ic"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div>
+          <div><b>Printed workbooks</b><p>Paper notes and assignments for every member who cannot use a smartphone, printed monthly.</p></div>
+        </div>
+        <div class="money__row">
+          <div class="money__ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 19a6.5 6.5 0 0113 0"/><path d="M16 5.5a3 3 0 010 5.6M18 19a6.4 6.4 0 00-2.2-4.8"/></svg></div>
+          <div><b>Facilitator training</b><p>Stage 3 graduates are trained to teach, so the school can open in more than one place at a time.</p></div>
+        </div>
+        <div class="money__row">
+          <div class="money__ic"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 00-7.1 0L12 7.3l-1.7-1.7a5 5 0 10-7.1 7.1L12 21l8.8-8.3a5 5 0 000-7.1z"/></svg></div>
+          <div><b>Sponsored seats</b><p>Every ten paying members fund one seat for somebody who cannot pay. The register does not distinguish.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="final">
+  <div class="wrap">
+    <div class="cta rv">
+      <span class="eyebrow">First consultation</span>
+      <h2>Come and be diagnosed.</h2>
+      <p>Bring a pen. Bring your real numbers, however bad they are. Nobody in that room is going to be surprised by yours.</p>
+      <div class="cta__btns">
+        <a class="btn btn--green" href="contact.html">Book a consultation</a>
+        <a class="btn btn--onNavy" href="fees.html">See fees and stages</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="brand" href="index.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="#FFFFFF" stroke-width="1.6"/><path d="M4 12h3.4l1.6-4 2.4 8 2-4.6 1.4 2.6H20" fill="none" stroke="#16B364" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Finance Clinic
+        </a>
+        <p class="verse">“For it is He who gives you the ability to produce wealth, and so confirms His covenant.” — Deuteronomy 8:18</p>
+        <p class="foot__addr">Finance Clinic · Lagos, Nigeria<br>Spiritual &amp; Mental Wealth Programme</p>
+      </div>
+      <div>
+        <h4>The programme</h4>
+        <ul>
+          <li><a href="index.html#check">Symptom check</a></li>
+          <li><a href="curriculum.html">Curriculum</a></li>
+          <li><a href="fees.html">Fees</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#faq">Questions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Take a seat</h4>
+        <ul>
+          <li><a href="contact.html">Book a consultation</a></li>
+          <li><a href="contact.html">Sponsor a seat</a></li>
+          <li><a href="contact.html">Ask on WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bar">© 2026 Finance Clinic · Spiritual &amp; Mental Wealth Programme</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  var s=function(){nav.classList.toggle('stuck',window.scrollY>10)};s();
+  window.addEventListener('scroll',s,{passive:true});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(Math.min(i%4,3)*65)+'ms';io.observe(el)});
+  } else {document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on')})}
+})();
+</script>
+</body>
+</html>

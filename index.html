@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finance Clinic — A school for your money, spirit and mind</title>
+<meta name="description" content="A 90-day financial school in Lagos. Scripture and balance sheets in the same room. Six classes. One written plan. One result you can point to. Stage 1 costs nothing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1A2B;
+  --ink:#0B1B2B;
+  --body:#5C6B7A;
+  --muted:#8494A3;
+  --green:#16B364;
+  --green-dk:#0F8F4E;
+  --green-tint:#EFFBF3;
+  --green-line:#B9E9CD;
+  --bg:#F5F8FA;
+  --white:#FFFFFF;
+  --line:#E5EBF0;
+  --r:12px;
+  --r-sm:8px;
+  --pad:clamp(64px,7.5vw,110px);
+  --wrap:1180px;
+  --shadow:0 18px 40px -18px rgba(11,27,43,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--white);color:var(--ink);font-family:"Plus Jakarta Sans",-apple-system,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--green);outline-offset:3px;border-radius:4px}
+
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.sec{padding:var(--pad) 0}
+.sec--bg{background:var(--bg)}
+.sec--navy{background:var(--navy);color:#E8EFF5}
+
+h1,h2,h3,h4{line-height:1.18;letter-spacing:-.025em;font-weight:800}
+h1{font-size:clamp(34px,4.9vw,54px);line-height:1.1}
+h2{font-size:clamp(28px,3.6vw,42px)}
+h3{font-size:clamp(19px,1.6vw,21px);letter-spacing:-.015em}
+.g{color:var(--green)}
+p{color:var(--body)}
+.lede{font-size:16.5px;line-height:1.7}
+
+.eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.eyebrow--pale{color:var(--green)}
+
+.head{text-align:center;max-width:680px;margin:0 auto clamp(38px,4.5vw,56px)}
+.head h2{margin-bottom:16px}
+.head p{font-size:16px}
+.head--l{text-align:left;margin-left:0;margin-right:0}
+.sec--navy .head h2{color:#fff}
+.sec--navy .head p{color:rgba(232,239,245,.68)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-size:15px;font-weight:600;padding:14px 26px;border-radius:var(--r-sm);border:1.5px solid transparent;text-decoration:none;cursor:pointer;transition:background .18s,transform .18s,border-color .18s,color .18s}
+.btn--green{background:var(--green);color:#fff}
+.btn--green:hover{background:var(--green-dk);transform:translateY(-2px)}
+.btn--out{background:var(--white);color:var(--ink);border-color:var(--line)}
+.btn--out:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.btn--onNavy{background:transparent;color:#fff;border-color:rgba(255,255,255,.28)}
+.btn--onNavy:hover{border-color:#fff;transform:translateY(-2px)}
+.btn--sm{padding:11px 20px;font-size:14px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .25s}
+.nav.stuck{border-bottom-color:var(--line)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:22px;height:74px}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.02em}
+.brand svg{width:26px;height:26px;flex:none}
+.nav__links{display:flex;gap:32px}
+.nav__links a{font-size:14.5px;font-weight:500;color:var(--body);text-decoration:none;transition:color .16s}
+.nav__links a:hover{color:var(--green)}
+@media(max-width:940px){.nav__links{display:none}}
+@media(max-width:420px){.nav .btn{display:none}}
+
+/* hero */
+.hero{background:var(--bg);padding:clamp(48px,6vw,84px) 0 clamp(60px,7vw,100px)}
+.hero__grid{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(34px,5vw,64px);align-items:center}
+.hero h1{margin-bottom:20px}
+.hero h1 span{color:var(--green)}
+.hero p.lede{max-width:46ch}
+.hero__btns{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 24px}
+.hero__note{font-size:14.5px;color:var(--body);max-width:44ch}
+@media(max-width:900px){.hero__grid{grid-template-columns:1fr}}
+
+/* case file */
+.file{background:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.file__top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;background:var(--green-tint);border-bottom:1px solid var(--green-line)}
+.file__top span{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--green-dk)}
+.pulse{width:100%;height:48px;padding:14px 20px 0}
+.pulse path{fill:none;stroke:var(--green);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pulse--anim path{stroke-dasharray:600;stroke-dashoffset:600;animation:trace 2.1s ease-out .35s forwards}
+@keyframes trace{to{stroke-dashoffset:0}}
+.vitals{padding:6px 20px 20px}
+.vital{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.vital:last-child{border-bottom:0;padding-bottom:0}
+.vital__k{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.vital__v{font-size:16px;font-weight:800;letter-spacing:-.02em;text-align:right}
+.vital__v small{display:block;font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:0}
+
+/* two-panel */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,26px)}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.panel{border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:clamp(24px,3vw,34px);background:rgba(255,255,255,.035)}
+.panel--yes{background:rgba(22,179,100,.1);border-color:rgba(22,179,100,.45)}
+.panel__lab{display:block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(232,239,245,.5);margin-bottom:10px}
+.panel h3{color:#fff;margin-bottom:20px;font-size:20px}
+.panel ul{list-style:none;display:grid;gap:15px}
+.panel li{display:flex;gap:13px;font-size:15.5px;line-height:1.55;color:rgba(232,239,245,.87)}
+.panel li b{flex:none;width:20px;font-size:12.5px;font-weight:700;color:rgba(232,239,245,.45);padding-top:2px}
+.panel--yes li b{color:var(--green)}
+
+/* symptom check */
+.syms{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px}
+@media(max-width:760px){.syms{grid-template-columns:1fr}}
+.sym{display:flex;align-items:flex-start;gap:13px;padding:17px 19px;cursor:pointer;background:var(--white);border:1.5px solid var(--line);border-radius:10px;font-size:15.5px;line-height:1.45;font-weight:500;transition:border-color .16s,background .16s}
+.sym:hover{border-color:var(--green-line)}
+.sym input{position:absolute;opacity:0;width:0;height:0}
+.sym__box{flex:none;width:21px;height:21px;margin-top:1px;border:1.5px solid var(--line);border-radius:6px;display:grid;place-items:center;background:var(--white);transition:background .16s,border-color .16s}
+.sym__box svg{width:12px;height:12px;opacity:0;transition:opacity .16s;fill:none;stroke:#fff;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.sym input:checked ~ .sym__box{background:var(--green);border-color:var(--green)}
+.sym input:checked ~ .sym__box svg{opacity:1}
+.sym:has(input:checked){border-color:var(--green);background:var(--green-tint)}
+.sym input:focus-visible ~ .sym__box{outline:2.5px solid var(--green);outline-offset:3px}
+.verdict{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r);padding:clamp(24px,3vw,34px);text-align:center}
+.verdict[data-state="active"]{border-color:var(--green);background:var(--green-tint)}
+.verdict__n{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.verdict h3{font-size:clamp(21px,2.6vw,28px);margin:11px 0 10px}
+.verdict p{max-width:54ch;margin:0 auto;font-size:15.5px}
+.verdict .btn{margin-top:20px}
+
+/* prescription */
+.rx{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,24px)}
+@media(max-width:820px){.rx{grid-template-columns:1fr}}
+.track{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:clamp(26px,3vw,34px)}
+.track h3{margin-bottom:8px}
+.track > p{font-size:15px;margin-bottom:20px}
+.topic{padding:15px 0;border-top:1px solid var(--line);display:grid;gap:4px}
+.topic b{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.topic strong{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.topic span{font-size:14.5px;color:var(--muted);line-height:1.55}
+.seam{margin-top:clamp(20px,2.6vw,26px);background:var(--green-tint);border:1px solid var(--green-line);border-radius:var(--r);padding:clamp(24px,3vw,32px);display:flex;gap:clamp(18px,3vw,34px);align-items:center;flex-wrap:wrap}
+.seam p{flex:1 1 340px;font-size:16px;color:var(--ink)}
+
+/* weeks + rota */
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.weeks{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.weeks{grid-template-columns:1fr}}
+.week{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;transition:box-shadow .2s,transform .2s,border-color .2s}
+.week:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:var(--green-line)}
+.week b{display:block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.week h3{font-size:18px;margin-bottom:7px}
+.week p{font-size:14.5px;line-height:1.55}
+.rota{margin-top:clamp(20px,2.6vw,26px);background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.rota__row{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 22px;border-bottom:1px solid var(--line);align-items:baseline}
+.rota__row:last-child{border-bottom:0}
+.rota__row b{font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--green)}
+.rota__row span{font-size:15px;font-weight:500}
+@media(max-width:560px){.rota__row{grid-template-columns:1fr;gap:3px}}
+
+/* stack */
+.stack{background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.item{display:grid;grid-template-columns:1fr auto;gap:20px;padding:20px 24px;border-bottom:1px solid var(--line);align-items:center}
+.item b{display:block;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.item p{font-size:14.5px;line-height:1.55;margin-top:3px}
+.item span{font-size:15px;font-weight:700;white-space:nowrap;color:var(--ink)}
+.item--tot{background:var(--green-tint);border-bottom:0}
+.item--tot b,.item--tot span{color:var(--green-dk);font-size:17px}
+@media(max-width:560px){.item{grid-template-columns:1fr;gap:6px}}
+.fee{margin-top:clamp(20px,2.6vw,26px);background:var(--navy);border-radius:var(--r);padding:clamp(26px,3.4vw,38px);display:flex;gap:clamp(20px,4vw,44px);align-items:center;justify-content:space-between;flex-wrap:wrap}
+.fee h3{color:#fff;font-size:clamp(24px,3vw,32px);margin-bottom:10px}
+.fee p{color:rgba(232,239,245,.72);font-size:15.5px;max-width:46ch}
+.fee > div{flex:1 1 320px}
+
+/* guarantee */
+.promise{background:var(--green-tint);border:1.5px solid var(--green-line);border-radius:var(--r);padding:clamp(28px,4vw,46px);display:flex;gap:clamp(20px,3vw,32px);align-items:flex-start;flex-wrap:wrap}
+.promise__ic{width:48px;height:48px;flex:none;border-radius:12px;background:var(--white);border:1px solid var(--green-line);display:grid;place-items:center}
+.promise__ic svg{width:24px;height:24px;fill:none;stroke:var(--green);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.promise__bd{flex:1 1 420px}
+.promise h2{margin-bottom:16px}
+.promise p{font-size:16px;max-width:64ch}
+.promise p + p{margin-top:13px}
+
+/* testimony */
+.tst3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.tst3{grid-template-columns:1fr}}
+.tst{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.tst blockquote{font-size:16px;line-height:1.62;color:var(--ink);font-weight:500}
+.tst figcaption{font-size:13.5px;color:var(--muted);margin-top:auto}
+.tst figcaption b{display:block;color:var(--ink);font-size:14.5px;font-weight:700}
+
+/* stages */
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.stages{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+.stage{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px}
+.stage--now{border:1.5px solid var(--green);background:var(--green-tint);box-shadow:var(--shadow)}
+.stage b{display:block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.stage h3{margin-bottom:10px}
+.stage p{font-size:15px}
+.stage__meta{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.stage--now .stage__meta{border-top-color:var(--green-line);color:var(--green-dk)}
+.gate{margin-top:clamp(22px,3vw,30px);font-size:16.5px;max-width:66ch}
+.gate strong{color:var(--ink);font-weight:700}
+
+/* pay it forward */
+.fwd{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4.5vw,60px);align-items:center}
+@media(max-width:820px){.fwd{grid-template-columns:1fr}}
+.fwd h2{margin-bottom:16px}
+.counter{background:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(30px,3.8vw,44px);text-align:center}
+.counter__n{font-size:clamp(64px,9vw,104px);font-weight:800;line-height:.9;letter-spacing:-.05em;color:var(--green)}
+.counter__l{margin-top:12px;font-size:15.5px;color:var(--body);font-weight:600}
+.bar{height:8px;border-radius:99px;background:var(--bg);border:1px solid var(--line);margin-top:24px;overflow:hidden}
+.bar i{display:block;height:100%;width:62%;background:var(--green);border-radius:99px}
+.counter__f{margin-top:14px;font-size:14px;color:var(--muted);font-weight:600}
+
+/* faq */
+.faq__top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:end;margin-bottom:clamp(28px,3.4vw,42px)}
+@media(max-width:800px){.faq__top{grid-template-columns:1fr}}
+.q{background:var(--white);border:1px solid var(--line);border-radius:10px;margin-bottom:12px;overflow:hidden}
+.q[open]{background:var(--green-tint);border-color:var(--green-line)}
+.q summary{list-style:none;cursor:pointer;padding:19px 52px 19px 22px;position:relative;font-size:15.5px;font-weight:600;line-height:1.4}
+.q summary::-webkit-details-marker{display:none}
+.q summary::after{content:"+";position:absolute;right:20px;top:15px;font-size:22px;font-weight:400;color:var(--green)}
+.q[open] summary::after{content:"–"}
+.q p{padding:0 22px 22px;font-size:15px;max-width:76ch}
+
+/* final */
+.final{padding:0 0 var(--pad)}
+.cta{position:relative;overflow:hidden;border-radius:16px;text-align:center;padding:clamp(48px,6.5vw,86px) 24px;background:var(--navy)}
+.cta::before{content:"";position:absolute;inset:0;opacity:.55;background:
+  radial-gradient(620px 320px at 50% 120%,rgba(22,179,100,.3),transparent 70%),
+  repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 34px)}
+.cta > *{position:relative}
+.cta h2{color:#fff;max-width:16ch;margin:0 auto 16px}
+.cta p{color:rgba(232,239,245,.72);max-width:54ch;margin:0 auto;font-size:16.5px}
+.cta__btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.cta__meta{display:flex;justify-content:center;gap:clamp(20px,4vw,48px);flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+.cta__meta div{font-size:14.5px;color:rgba(232,239,245,.8);font-weight:600}
+.cta__meta b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,239,245,.45);margin-bottom:6px;font-weight:700}
+
+/* footer */
+.foot{background:var(--navy);color:rgba(232,239,245,.66);padding:clamp(50px,6vw,72px) 0 0}
+.foot__grid{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:clamp(26px,4vw,52px)}
+@media(max-width:820px){.foot__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.foot__grid{grid-template-columns:1fr}}
+.foot .brand{color:#fff}
+.foot h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:16px;letter-spacing:0}
+.foot ul{list-style:none;display:grid;gap:11px}
+.foot a{font-size:14.5px;text-decoration:none;transition:color .16s}
+.foot a:hover{color:var(--green)}
+.verse{font-size:17px;line-height:1.6;color:rgba(232,239,245,.9);max-width:44ch;margin-top:18px;font-weight:500}
+.foot__addr{font-size:14.5px;margin-top:16px}
+.foot__bar{margin-top:clamp(38px,5vw,56px);border-top:1px solid rgba(255,255,255,.12);padding:22px 0 26px;text-align:center;font-size:13.5px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .pulse--anim path{stroke-dashoffset:0}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="none" stroke="#0B1B2B" stroke-width="1.6"/>
+        <path d="M4 12h3.4l1.6-4 2.4 8 2-4.6 1.4 2.6H20" fill="none" stroke="#16B364" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Finance Clinic
+    </a>
+    <div class="nav__links">
+      <a href="#check">Symptom check</a>
+      <a href="#rx">Curriculum</a>
+      <a href="#fees">Fees</a>
+      <a href="#faq">Questions</a>
+    </div>
+    <a class="btn btn--green btn--sm" href="#book">Book consultation</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="eyebrow">Presenting complaint · Lagos</span>
+      <h1>You tithe. You work. And the money still doesn't <span>reach</span> the end of the month.</h1>
+      <p class="lede">Finance Clinic is a school for your money — spirit and mind, in the same room. Ninety days. Six classes. One written plan and one result you can point to.</p>
+      <div class="hero__btns">
+        <a class="btn btn--green" href="#check">Take the symptom check</a>
+        <a class="btn btn--out" href="#rx">See what is taught</a>
+      </div>
+      <p class="hero__note">Stage 1 costs nothing. A billionaire and a market trader enter through the same door.</p>
+    </div>
+
+    <aside class="file rv">
+      <div class="file__top"><span>Case file 001</span><span>Open</span></div>
+      <svg class="pulse pulse--anim" viewBox="0 0 320 34" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 20h56l9-14 11 27 10-19 8 6h34l9-11 12 20 9-12h38l8-7 10 14 9-7h76"/>
+      </svg>
+      <div class="vitals">
+        <div class="vital"><span class="vital__k">Programme</span><span class="vital__v">120 topics<small>60 spiritual · 60 mental</small></span></div>
+        <div class="vital"><span class="vital__k">First 90 days</span><span class="vital__v">6 classes<small>Two per month, 90 minutes</small></span></div>
+        <div class="vital"><span class="vital__k">Format</span><span class="vital__v">Live + online<small>Printed notes on request</small></span></div>
+        <div class="vital"><span class="vital__k">Entry fee</span><span class="vital__v">₦0<small>Pay what you can, or nothing</small></span></div>
+        <div class="vital"><span class="vital__k">Next cohort</span><span class="vital__v">Sat 5 Sept<small>120 seats, one venue</small></span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- NOT / IS -->
+<section class="sec sec--navy">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Before anything else</span>
+      <h2>Let us clear the air.</h2>
+      <p>If money has been used to pressure you in a church before, you have every reason to be careful. Read this first, then decide.</p>
+    </div>
+    <div class="two">
+      <div class="panel rv">
+        <span class="panel__lab">This is not</span>
+        <h3>What Finance Clinic is not</h3>
+        <ul>
+          <li><b>01</b>A seed-sowing meeting. Nobody will ask you for an offering to unlock a lesson.</li>
+          <li><b>02</b>A prophecy over your account balance.</li>
+          <li><b>03</b>A promise that faith replaces arithmetic. Both are required.</li>
+          <li><b>04</b>A one-night seminar you attend, enjoy, and forget by Tuesday.</li>
+          <li><b>05</b>A room where the poor are talked down to and the rich are fast-tracked.</li>
+        </ul>
+      </div>
+      <div class="panel panel--yes rv">
+        <span class="panel__lab">This is</span>
+        <h3>What Finance Clinic is</h3>
+        <ul>
+          <li><b>01</b>A school. Clear entrance, real curriculum, marked assignments, proper graduation.</li>
+          <li><b>02</b>Scripture and balance sheets taught in the same ninety minutes.</li>
+          <li><b>03</b>Homework that gets reviewed, by name, in front of people who know you.</li>
+          <li><b>04</b>Nigerian numbers. Naira inflation, treasury bills, rent cycles, black tax.</li>
+          <li><b>05</b>Free to enter, and it stays free for anyone who cannot pay. Every ten paying members sponsor one seat.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYMPTOM CHECK -->
+<section class="sec" id="check">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Triage · 30 seconds</span>
+      <h2>Start where every patient starts. With <span class="g">symptoms</span>.</h2>
+      <p>Tick everything that is true for you right now. Nobody sees your answers but you.</p>
+    </div>
+
+    <div class="syms" id="symptoms">
+      <label class="sym"><input type="checkbox"><span class="sym__box"><svg viewBox="0 0 16 16"><path d="M3 8.4l3.2 3.2L13 4.6"/></svg></span>My salary finishes before the month does.</label>
+      <label class="sym"><input type="checkbox"><span class="sym__box"><svg viewBox="0 0 16 16"><path d="M3 8.4l3.2 3.2L13 4.6"/></svg></span>I have never written a budget and kept it for a full month.</label>
+      <label class="sym"><input type="checkbox"><span class="sym__box"><svg viewBox="0 0 16 16"><path d="M3 8.4l3.2 3.2L13 4.6"/></svg></span>I give, but I give afraid.</label>
+      <label class="sym"><input type="checkbox"><span class="sym__box"><svg viewBox="0 0 16 16"><path d="M3 8.4l3.2 3.2L13 4.6"/></svg></span>I do not know what I owe in total, or by when.</label>
+      <label class="sym"><input type="checkbox"><span class="sym__box"><svg viewBox="0 0 16 16"><path d="M3 8.4l3.2 3.2L13 4.6"/></svg></span>Someone defrauded me once and I have not invested since.</label>
+      <label class="sym"><input type="checkbox"><span class="sym__box"><svg viewBox="0 0 16 16"><path d="M3 8.4l3.2 3.2L13 4.6"/></svg></span>My spouse and I avoid the money conversation.</label>
+      <label class="sym"><input type="checkbox"><span class="sym__box"><svg viewBox="0 0 16 16"><path d="M3 8.4l3.2 3.2L13 4.6"/></svg></span>I earn more than I did three years ago and have nothing to show for it.</label>
+      <label class="sym"><input type="checkbox"><span class="sym__box"><svg viewBox="0 0 16 16"><path d="M3 8.4l3.2 3.2L13 4.6"/></svg></span>I would not know where to open a treasury bill or a mutual fund account.</label>
+    </div>
+
+    <div class="verdict" id="result" data-state="idle" role="status" aria-live="polite">
+      <p class="verdict__n" id="count">0 symptoms selected</p>
+      <h3 id="verdict">Tick what applies above.</h3>
+      <p id="advice">Most people carry four or five of these and assume it is normal. It is common. That is a different thing.</p>
+      <a class="btn btn--green" href="#book" id="resultCta" hidden>Book your first consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRESCRIPTION -->
+<section class="sec sec--bg" id="rx">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">The prescription</span>
+      <h2>Two courses of treatment, taken <span class="g">together</span>.</h2>
+      <p>One without the other is why most financial teaching fails. Faith without arithmetic stays a wish. Arithmetic without conviction never survives a hard month.</p>
+    </div>
+
+    <div class="rx">
+      <div class="track rv">
+        <span class="eyebrow">Course one · 60 topics</span>
+        <h3>Kingdom Finance</h3>
+        <p>What scripture actually says about earning, keeping, giving, owing and leaving.</p>
+        <div class="topic"><b>Topic 03</b><strong>The purpose of wealth</strong><span>Deuteronomy 8:18. Write your own wealth purpose statement.</span></div>
+        <div class="topic"><b>Topic 09</b><strong>Debt and the lender's seat</strong><span>Proverbs 22:7. List every debt, its rate, and a freedom date.</span></div>
+        <div class="topic"><b>Topic 11</b><strong>Work is worship</strong><span>Colossians 3:23. A 30-day excellence plan for your job or business.</span></div>
+        <div class="topic"><b>Topic 18</b><strong>Write the vision down</strong><span>Habakkuk 2:2. Your 1-year, 3-year and 10-year figures, with dates.</span></div>
+      </div>
+
+      <div class="track rv">
+        <span class="eyebrow">Course two · 60 topics</span>
+        <h3>The Mind of Wealth</h3>
+        <p>The beliefs, habits and instruments that decide what happens to every naira you touch.</p>
+        <div class="topic"><b>Topic 01</b><strong>Your money story</strong><span>Your first memory of money still runs your pricing today.</span></div>
+        <div class="topic"><b>Topic 22</b><strong>Zero-based budgeting</strong><span>Every naira gets a name before the month begins.</span></div>
+        <div class="topic"><b>Topic 24</b><strong>The emergency fund</strong><span>Three to six months, liquid. The wall that protects everything else.</span></div>
+        <div class="topic"><b>Topic 27</b><strong>The Nigerian investment landscape</strong><span>Treasury bills, mutual funds, dollar accounts, property. Risk by risk.</span></div>
+      </div>
+    </div>
+
+    <div class="seam rv">
+      <p><strong>Topic 5 sits beside Topic 22 on purpose.</strong> The tithe and the budget are taught in the same term, by the same teachers, to the same people. You are not asked to choose between obedience and competence.</p>
+      <a class="btn btn--out" href="#book">See the full 120-topic outline</a>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENT PLAN -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Treatment plan · every month</span>
+      <h2>Four classes a month. <span class="g">Nothing you cannot keep.</span></h2>
+      <p>Spirit first, mind second, then both again. Frequent enough to build momentum, spaced enough to finish the homework.</p>
+    </div>
+
+    <div class="weeks">
+      <div class="week rv"><b>Week 01</b><h3>Kingdom class</h3><p>Scripture, story, assignment. 90 minutes.</p></div>
+      <div class="week rv"><b>Week 02</b><h3>Mind class</h3><p>Money psychology and financial instruments. 90 minutes.</p></div>
+      <div class="week rv"><b>Week 03</b><h3>Kingdom class</h3><p>Scripture, story, assignment. 90 minutes.</p></div>
+      <div class="week rv"><b>Week 04</b><h3>Open clinic</h3><p>Bring a real decision. Two hours, community answers.</p></div>
+    </div>
+
+    <div class="rota rv">
+      <div class="rota__row"><b>0 – 10 min</b><span>Opening prayer and declaration</span></div>
+      <div class="rota__row"><b>10 – 20 min</b><span>Assignment review — two or three members present last month's work</span></div>
+      <div class="rota__row"><b>20 – 55 min</b><span>Core teaching — the text, the story, the application</span></div>
+      <div class="rota__row"><b>55 – 70 min</b><span>Small groups of four to six</span></div>
+      <div class="rota__row"><b>70 – 80 min</b><span>This month's assignment, issued in writing</span></div>
+      <div class="rota__row"><b>80 – 90 min</b><span>Closing declaration and prayer over the work</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU ARE GIVEN -->
+<section class="sec sec--bg" id="fees">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">What you are given</span>
+      <h2>Everything a member receives in the first ninety days.</h2>
+    </div>
+
+    <div class="stack rv">
+      <div class="item"><div><b>The Money Diagnosis</b><p>A 60-question assessment and a written report on where your money actually goes and why.</p></div><span>₦25,000</span></div>
+      <div class="item"><div><b>The Naira Playbook</b><p>Where to open a treasury bill, mutual fund and domiciliary account in Nigeria. Step by step, with the paperwork.</p></div><span>₦20,000</span></div>
+      <div class="item"><div><b>Your Debt Freedom Date</b><p>A calculator that turns every balance and rate you carry into one date on a calendar.</p></div><span>₦10,000</span></div>
+      <div class="item"><div><b>The Family Financial Constitution</b><p>A template for the written agreement your household has never had.</p></div><span>₦15,000</span></div>
+      <div class="item"><div><b>Finance Clinic Juniors</b><p>Age-filtered lessons so your children learn to earn, save, give and invest before ten.</p></div><span>₦18,000</span></div>
+      <div class="item"><div><b>Printed workbook</b><p>For members without a smartphone. Requested at registration, no explanation needed.</p></div><span>₦8,000</span></div>
+      <div class="item"><div><b>Monthly Open Clinic</b><p>Bring the actual decision — the loan, the offer, the land, the school fees — to a room that will tell you the truth.</p></div><span>₦30,000</span></div>
+      <div class="item item--tot"><div><b>Total value</b></div><span>₦126,000</span></div>
+    </div>
+
+    <div class="fee rv">
+      <div>
+        <span class="eyebrow eyebrow--pale">Stage 1 fee</span>
+        <h3>Free. Or pay what you can.</h3>
+        <p>Stages 2 and 3 are priced, with payment plans. If you cannot pay at any stage, a sponsored seat is waiting and nobody in the room will know which seat is yours.</p>
+      </div>
+      <a class="btn btn--green" href="#book">Claim a seat</a>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="promise rv">
+      <div class="promise__ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="promise__bd">
+        <span class="eyebrow">Our promise</span>
+        <h2>The No One Sits Alone Guarantee.</h2>
+        <p>Complete your six assignments in ninety days. If nothing in your finances has moved — no savings started, no debt reduced, no plan written down — you get a private session with a facilitator, and then another, until something does.</p>
+        <p>You do not graduate alone, and you do not fail alone. That is the whole guarantee. There is no fine print because there is no fee to refund at Stage 1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONY -->
+<!-- REPLACE BEFORE PUBLISHING: illustrative placeholders only. Substitute real, dated, consented member quotes. -->
+<section class="sec sec--bg">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">Testimony wall</span>
+      <h2>Testimony is <span class="g">curriculum</span> here.</h2>
+      <p>Members post what changed, with the number and the date. The wall is the syllabus nobody wrote.</p>
+    </div>
+    <div class="tst3">
+      <figure class="tst rv">
+        <blockquote>“I had four debts and no idea what they added up to. Week two I wrote them down. It was less than I feared. I have cleared two.”</blockquote>
+        <figcaption><b>Placeholder — replace</b>Trader, Ojota · Cohort 1</figcaption>
+      </figure>
+      <figure class="tst rv">
+        <blockquote>“We had been married six years and never once opened our accounts to each other. The assignment made us do it in one evening.”</blockquote>
+        <figcaption><b>Placeholder — replace</b>Teacher, Ajah · Cohort 2</figcaption>
+      </figure>
+      <figure class="tst rv">
+        <blockquote>“I have been giving since I was nineteen. This was the first time anyone showed me how to give and still build something.”</blockquote>
+        <figcaption><b>Placeholder — replace</b>Engineer, Ikeja · Cohort 2</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- STAGES -->
+<section class="sec">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">The three stages</span>
+      <h2>Everyone comes in through the <span class="g">same door</span>.</h2>
+    </div>
+    <div class="stages">
+      <div class="stage stage--now rv">
+        <b>Stage one</b>
+        <h3>Foundation</h3>
+        <p>Topics 1–20 of both courses. Diagnosis, first budget, first savings, the debt list, the money story.</p>
+        <div class="stage__meta">Open to everyone · Free</div>
+      </div>
+      <div class="stage rv">
+        <b>Stage two</b>
+        <h3>Growth</h3>
+        <p>Topics 21–40. Multiplication, investing, family money, partnerships, pricing yourself properly.</p>
+        <div class="stage__meta">Stage 1 graduates · Priced</div>
+      </div>
+      <div class="stage rv">
+        <b>Stage three</b>
+        <h3>Mastery</h3>
+        <p>Topics 41–60. Legacy, succession, wills, generational transfer, and the mandate to teach it forward.</p>
+        <div class="stage__meta">Stage 2 graduates · Priced</div>
+      </div>
+    </div>
+    <p class="gate rv"><strong>Nobody skips Stage 1.</strong> A billionaire and a market trader enter through the same door, on the same night, with the same assignment due. The foundation levels the floor — shared language, shared values, one framework.</p>
+  </div>
+</section>
+
+<!-- PAY IT FORWARD -->
+<section class="sec sec--bg">
+  <div class="wrap fwd">
+    <div class="rv">
+      <span class="eyebrow">Pay it forward</span>
+      <h2>Every ten paying members sponsor one free seat.</h2>
+      <p class="lede">You never find out who sat in the seat you paid for, and they never find out it was you. That is the point. The register does not distinguish.</p>
+    </div>
+    <div class="counter rv">
+      <!-- REPLACE: wire these two numbers to a real source before publishing -->
+      <div class="counter__n">37</div>
+      <p class="counter__l">seats sponsored this month</p>
+      <div class="bar"><i></i></div>
+      <p class="counter__f">62% of the September cohort funded</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="faq__top">
+      <div class="rv">
+        <span class="eyebrow">Questions people actually ask</span>
+        <h2>Before you <span class="g">register</span>.</h2>
+      </div>
+      <div class="rv"><p>These are the seven things people ask before they join a cohort. If yours is not here, message the number in the footer and a person will answer it.</p></div>
+    </div>
+
+    <details class="q rv" open><summary>Will I be asked to give money in the class?</summary><p>No. There is no offering basket in a Finance Clinic session, and no lesson is locked behind a gift. Giving is taught as a subject, the same way debt and budgeting are taught as subjects. What you do with your own money afterwards is between you and God.</p></details>
+    <details class="q rv"><summary>I do not attend this church. Can I come?</summary><p>Yes. The teaching is rooted in scripture and you should know that before you walk in. You are not required to be a member of anything, and nobody will follow up about your church attendance.</p></details>
+    <details class="q rv"><summary>Is 120 topics not too much? I work.</summary><p>You are registering for six classes over ninety days, not for 120 topics. The full curriculum runs for years because it is a school, and schools take time. Most members decide about Stage 2 only after they have finished Stage 1 and seen something change.</p></details>
+    <details class="q rv"><summary>I genuinely cannot pay anything.</summary><p>Then you pay nothing, and you sit in the same seats, receive the same workbook and do the same assignments. Say so at registration in one sentence. No form, no interview, no committee.</p></details>
+    <details class="q rv"><summary>What if I miss a class?</summary><p>Every session is recorded and posted within 48 hours. The assignment still comes to you. Attendance is not the accountability engine here — the marked assignment is.</p></details>
+    <details class="q rv"><summary>Do I need a smartphone?</summary><p>No. Tick the printed workbook option at registration and your notes and assignments are handed to you on paper each month.</p></details>
+    <details class="q rv"><summary>Can my children come?</summary><p>Finance Clinic Juniors runs age-filtered material alongside the adult class. Children who learn to earn, save, give and invest before ten rarely have to unlearn anything later.</p></details>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="book">
+  <div class="wrap">
+    <div class="cta rv">
+      <span class="eyebrow">First consultation</span>
+      <h2>Come and be diagnosed.</h2>
+      <p>Bring a pen. Bring your real numbers, however bad they are. Nobody in that room is going to be surprised by yours.</p>
+      <div class="cta__btns">
+        <a class="btn btn--green" href="#">Register for the September cohort</a>
+        <a class="btn btn--onNavy" href="#">Ask a question on WhatsApp</a>
+      </div>
+      <div class="cta__meta">
+        <div><b>Starts</b>Saturday 5 September, 4:00pm</div>
+        <div><b>Venue</b>Lagos · full address on registration</div>
+        <div><b>Capacity</b>120 seats. Online uncapped.</div>
+        <div><b>Fee</b>Stage 1 is free</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="brand" href="#top">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="none" stroke="#FFFFFF" stroke-width="1.6"/>
+            <path d="M4 12h3.4l1.6-4 2.4 8 2-4.6 1.4 2.6H20" fill="none" stroke="#16B364" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Finance Clinic
+        </a>
+        <p class="verse">“For it is He who gives you the ability to produce wealth, and so confirms His covenant.” — Deuteronomy 8:18</p>
+        <p class="foot__addr">Finance Clinic · Lagos, Nigeria<br>Spiritual &amp; Mental Wealth Programme</p>
+      </div>
+      <div>
+        <h4>The programme</h4>
+        <ul>
+          <li><a href="#check">Symptom check</a></li>
+          <li><a href="#rx">Curriculum</a></li>
+          <li><a href="#fees">Fees</a></li>
+          <li><a href="#faq">Questions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Take a seat</h4>
+        <ul>
+          <li><a href="#book">Book a consultation</a></li>
+          <li><a href="#book">Sponsor a seat</a></li>
+          <li><a href="#book">Ask on WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bar">© 2026 Finance Clinic · Spiritual &amp; Mental Wealth Programme</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('stuck', window.scrollY > 10); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.rv').forEach(function(el,i){
+      el.style.transitionDelay = (Math.min(i % 4, 3) * 65) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('on'); });
+  }
+
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('#symptoms input'));
+  var result = document.getElementById('result');
+  var count = document.getElementById('count');
+  var verdict = document.getElementById('verdict');
+  var advice = document.getElementById('advice');
+  var cta = document.getElementById('resultCta');
+
+  var states = [
+    { min:0, t:'Tick what applies above.',
+      d:'Most people carry four or five of these and assume it is normal. It is common. That is a different thing.' },
+    { min:1, t:'One or two symptoms. Worth a look.',
+      d:'Small things left alone become the reason a good salary disappears. Stage 1 handles these in the first month.' },
+    { min:3, t:'You are not broke. You are undiagnosed.',
+      d:'Three or more symptoms is not a character problem. It is a system problem, and systems can be rebuilt. This is exactly what the first ninety days are for.' },
+    { min:6, t:'This is treatable, and it is urgent.',
+      d:'Six or more means money is costing you sleep, and probably peace at home. Come to the first class. Bring the real numbers. Nobody will be surprised by them.' }
+  ];
+
+  function update(){
+    var n = boxes.filter(function(b){ return b.checked; }).length;
+    var s = states[0];
+    for (var i=0;i<states.length;i++){ if (n >= states[i].min) s = states[i]; }
+    count.textContent = n + (n === 1 ? ' symptom selected' : ' symptoms selected');
+    verdict.textContent = s.t;
+    advice.textContent = s.d;
+    result.setAttribute('data-state', n === 0 ? 'idle' : 'active');
+    cta.hidden = (n === 0);
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', update); });
+  update();
+})();
+</script>
+</body>
+</html>
