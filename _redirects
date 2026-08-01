@@ -1,0 +1,5 @@
+# Redirect old home page path to root with 301 (permanent)
+/finance-clinic-final.html / 301
+
+# Redirect common trailing slash variants
+/index.html / 301
