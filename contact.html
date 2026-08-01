@@ -24,6 +24,7 @@
 <meta name="twitter:description" content="Register for the next cohort, book a consultation, or ask a question on WhatsApp. No sales pitch. Just a form.">
 <meta name="twitter:image" content="https://financeclinic.ng/assets/img/og-cover.png">
 <link rel="canonical" href="https://financeclinic.ng/contact.html">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -107,11 +108,8 @@
       <h2>Register for the next cohort.</h2>
       <p class="card__intro">Everything except your name and one contact detail is optional. We do not sell, share or publish anything you write here.</p>
 
-      <form id="regform" action="https://api.web3forms.com/submit" method="post" novalidate>
+      <form id="regform" action="/api/contact" method="post" novalidate>
         <!-- REPLACE_ME: Replace the value below with your real Web3Forms access key from https://web3forms.com -->
-        <input type="hidden" name="access_key" value="REPLACE_ME">
-        <input type="hidden" name="subject" value="Finance Clinic — New Seat Registration">
-        <input type="hidden" name="redirect" value="false">
         <!-- Honeypot anti-spam field — must remain invisible -->
         <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="f2">
@@ -159,6 +157,8 @@
 
         <label class="field"><span>Anything you want us to know</span><textarea name="message" placeholder="A question, your situation, your children's ages — whatever is useful. Or leave it blank."></textarea></label>
 
+        <!-- Cloudflare Turnstile Anti-Spam Widget -->
+        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light" style="margin-bottom: 16px;"></div>
         <button class="btn btn--green btn--wide" type="submit" id="regsubmit">Send and reserve my seat</button>
         <p class="formnote">By sending this you are reserving a seat, not paying for anything. Stage 1 has no fee. We will reply with the venue address and the date of your first class.</p>
         <div class="sent" id="sent" role="status" aria-live="polite">Thank you. Your seat is noted and someone will reply with the venue details. If it is urgent, message the WhatsApp number above.</div>

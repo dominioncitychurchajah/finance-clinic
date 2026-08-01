@@ -1,0 +1,17 @@
+# Cloudflare Pages / Worker Project Configuration
+# Finance Clinic Website API
+
+name = "finance-clinic"
+pages_build_output_dir = "."
+compatibility_date = "2026-08-01"
+
+[vars]
+ALLOWED_ORIGIN = "*"
+ENVIRONMENT = "production"
+
+# Rate Limiting KV Namespace Binding
+# Create a KV namespace on Cloudflare Dashboard: Workers & Pages -> KV -> Create Namespace (name: RATE_LIMIT_KV)
+# Copy the generated KV Namespace ID below:
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "YOUR_KV_NAMESPACE_ID"

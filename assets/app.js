@@ -197,7 +197,45 @@
     });
   }
 
-  // --- 6. CONTACT FORM — REAL WEB3FORMS SUBMISSION (contact.html) ---
+    // --- 6. LEAD TRACKING & CONTACT FORM AUTOMATION (contact.html) ---
+
+  // Helper: Capture UTM and Lead Tracking metadata into sessionStorage
+  var captureUTMs = function () {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+      utmKeys.forEach(function (key) {
+        if (params.has(key)) {
+          sessionStorage.setItem(key, params.get(key));
+        }
+      });
+    } catch (e) {
+      // Ignore storage errors in restricted contexts
+    }
+  };
+  captureUTMs();
+
+  var getTrackData = function () {
+    var getUtm = function (key) {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        return params.get(key) || sessionStorage.getItem(key) || 'N/A';
+      } catch (e) {
+        return 'N/A';
+      }
+    };
+
+    return {
+      pageUrl: window.location.href,
+      referrer: document.referrer || 'Direct',
+      utmSource: getUtm('utm_source'),
+      utmMedium: getUtm('utm_medium'),
+      utmCampaign: getUtm('utm_campaign'),
+      utmContent: getUtm('utm_content'),
+      utmTerm: getUtm('utm_term')
+    };
+  };
+
   var regForm = document.getElementById('regform');
   var sentEl = document.getElementById('sent');
   var formError = document.getElementById('formerror');
@@ -207,48 +245,109 @@
     regForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Block honeypot submissions
+      // 1. Honeypot check
       var botField = regForm.querySelector('[name="botcheck"]');
-      if (botField && botField.value) return;
+      if (botField && botField.value && botField.value.trim() !== '') {
+        return; // Abort spam bot submission quietly
+      }
 
-      var nameField = regForm.querySelector('[name="name"]');
-      if (!nameField || !nameField.value.trim()) {
-        nameField.focus();
+      // 2. Extract values
+      var nameVal = (regForm.querySelector('[name="name"]') || {}).value || '';
+      var phoneVal = (regForm.querySelector('[name="phone"]') || {}).value || '';
+      var emailVal = (regForm.querySelector('[name="email"]') || {}).value || '';
+      var formatVal = (regForm.querySelector('[name="format"]') || {}).value || 'Live in Lagos';
+      var reasonVal = (regForm.querySelector('[name="reason"]') || {}).value || 'Registering for Stage 1';
+      var messageVal = (regForm.querySelector('[name="message"]') || {}).value || '';
+
+      var sponsoredVal = (regForm.querySelector('[name="sponsored"]') || {}).checked || false;
+      var printedVal = (regForm.querySelector('[name="printed"]') || {}).checked || false;
+      var juniorsVal = (regForm.querySelector('[name="juniors"]') || {}).checked || false;
+
+      // 3. Client Validation
+      if (!nameVal.trim() || nameVal.trim().length < 2) {
+        alert('Please enter your full name (at least 2 characters).');
+        (regForm.querySelector('[name="name"]') || {}).focus();
         return;
       }
 
-      // Disable and show loading state
+      if (!phoneVal.trim() && !emailVal.trim()) {
+        alert('Please provide at least one contact method (phone number or email address).');
+        (regForm.querySelector('[name="phone"]') || {}).focus();
+        return;
+      }
+
+      // Extract Turnstile Token
+      var turnstileInput = regForm.querySelector('[name="cf-turnstile-response"]');
+      var turnstileToken = turnstileInput ? turnstileInput.value : '';
+
+      // Build Lead Payload
+      var tracking = getTrackData();
+      var payload = {
+        name: nameVal.trim(),
+        phone: phoneVal.trim(),
+        email: emailVal.trim(),
+        format: formatVal,
+        reason: reasonVal,
+        sponsored: sponsoredVal,
+        printed: printedVal,
+        juniors: juniorsVal,
+        message: messageVal.trim() || 'No message provided',
+        botcheck: botField ? botField.value : '',
+        turnstileToken: turnstileToken,
+        pageUrl: tracking.pageUrl,
+        referrer: tracking.referrer,
+        utmSource: tracking.utmSource,
+        utmMedium: tracking.utmMedium,
+        utmCampaign: tracking.utmCampaign,
+        utmContent: tracking.utmContent,
+        utmTerm: tracking.utmTerm
+      };
+
+      // Loading state
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
 
-      var formData = new FormData(regForm);
+      // Hide previous notifications
+      sentEl.classList.remove('show');
+      if (formError) {
+        formError.setAttribute('hidden', '');
+        formError.classList.remove('show');
+      }
 
-      fetch('https://api.web3forms.com/submit', {
+      // 4. Submit to Cloudflare Worker API
+      fetch('/api/contact', {
         method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
       })
-        .then(function (response) {
-          if (response.ok) {
-            return response.json().then(function (data) {
-              if (data.success) {
-                sentEl.classList.add('show');
-                sentEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-                regForm.reset();
-                if (formError) {
-                  formError.setAttribute('hidden', '');
-                  formError.classList.remove('show');
-                }
-              } else {
-                throw new Error('Submission failed');
-              }
-            });
+        .then(function (res) {
+          return res.json().then(function (data) {
+            return { ok: res.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok && result.data && result.data.success !== false) {
+            // Success
+            sentEl.classList.add('show');
+            sentEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            regForm.reset();
+            // Reset Turnstile if widget exists
+            if (window.turnstile) {
+              try { window.turnstile.reset(); } catch (err) {}
+            }
           } else {
-            throw new Error('Network response was not ok');
+            throw new Error((result.data && result.data.message) || 'Submission failed.');
           }
         })
-        .catch(function () {
+        .catch(function (err) {
+          console.error('Contact form submission error:', err);
           if (formError) {
+            formError.textContent = (err && err.message)
+              ? err.message + ' If urgent, message us directly on WhatsApp.'
+              : 'Something went wrong sending your registration. Please try again or message us on WhatsApp.';
             formError.removeAttribute('hidden');
             formError.classList.add('show');
             formError.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
@@ -260,4 +359,5 @@
         });
     });
   }
+
 })();
